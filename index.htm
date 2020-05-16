@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Conversion Descente Canyon vers GPX</title>
+	<style>
+	body{
+		font-family:"Roboto", Helvetica, Arial, sans-serif;
+	}
+	
+	input[type=text]{
+
+		width: 100%;
+		border: 1px solid #ccc;
+		background: #FFF;
+		margin: 0 0 5px;
+		padding: 10px;
+		line-height: 28px;
+		font-size:30px;
+		display: inline-block;
+		box-sizing: border-box;
+
+	}
+
+	input[type=submit]{
+
+		width: 100%;
+		border: 1px solid #ccc;
+		font-size:30px;
+		line-height: 28px;
+		background: #eee;
+		margin: 0 0 5px;
+		padding: 10px;
+		cursor: pointer;
+
+	}
+	.container{
+
+		width:95%;
+		margin:auto;
+		padding:10px;
+		background-color: #BBB;
+		box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	}
+
+	.code{
+		margin:5px;
+		padding:5px;
+		background-color: #eee;
+		border:1px solid #aaa;
+		font-style:monospace;
+		font-size:12px;
+	}
+
+	.warning{
+		margin:5px;
+		padding:5px;
+		background-color: yellow;
+		border:1px solid #aaa;
+
+	}
+
+	h1{
+		padding:1px;
+		margin:1px;
+		text-align: center;
+	}
+
+	.row {
+		  display: flex;
+		  flex-wrap: wrap;
+		  padding: 0;
+		  margin:0;
+	}
+
+	/* Create 3 equal columns that sits next to each other */
+	.column {
+		  flex: 33.3%;
+		  max-width: 33.3%;
+		  text-align: center;
+		  margin:0;
+	}
+
+	.column img {
+		  
+		  vertical-align: middle;
+		  width: 90%;
+		  margin-top:8px;
+		  
+
+	}
+
+	/* Responsive layout - makes a two column-layout instead of four columns */
+	@media screen and (max-width: 400px) {
+	  .column {
+	    flex: 50%;
+	    max-width: 50%;
+	  }
+	}
+
+	/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+	@media screen and (max-width: 300px) {
+	  .column {
+	    flex: 100%;
+	    max-width: 100%;
+	  }
+	}
+
+	</style>
+
+
+</head>
+<body>
+	
+	<div class="container"><h1>Convertisseur Descente Canyon</h1>
+		<form action="dc_to_gpx.php">
+			<input type="text" name="id" placeholder="Identifiant du topo (ex: 2136)" /><br />
+			<div style="text-align:center;padding:10px">OU</div>
+			<input type="text" name="url" placeholder="https://www.descente-canyon.com/canyoning/canyon-carte/2136/carte.html" /><br /><br />
+
+			<input type="submit" value="Générer GPX">
+		</form>
+	</div>
+	<p><a href="https://www.descente-canyon.com/canyoning">Aller à la Base de canyons</a></p>
+	
+
+	<p class="warning">Attention, le fichier GPX est une aide supplémentaire. Soyez vigilant sur quant à la fiabilité du positionnement des points. Rappelez-vous qu'il n'est pas toujours évident de se géolocaliser dans un canyon et que certains points ont été positionné manuellement sur un fond de carte.</p>
+
+	<h3>Exemple sur View Ranger</h3>
+	<div class="row"> 
+	  	<div class="column">
+	  		<img src="viewranger1.jpeg" alt="Exemple carte sur view ranger">
+	 	</div>
+	  	<div class="column">
+			<img src="viewranger2.jpeg" alt="Exemple détail topo sur view ranger">
+	  	</div> 
+	  	<div class="column">
+			<img src="viewranger3.jpeg" alt="Exemple detail parking sur view ranger">
+	  	</div>
+	</div>
+	
+	
+	<h3>Un peu d'aide ?</h3>
+	<p>Vous pouvez générer un fichier GPX à partir d'un topo soit à partir de l'adresse URL du topo (Page Résumé, Description, Carte...), soit à partir de son identifiant.</p>
+	<h4>C'est quoi l'identifiant ?</h4>
+	<div class="code">
+		https://www.descente-canyon.com/canyoning/canyon/<strong>2136</strong>/Angon.html
+	</div>
+	<ul>
+	<li><p>Ci-dessus, l'URL du topo d'Angon avec l'identifiant du topo en gras : <strong>2136</strong></p>
+	</p></li>
+	<li><p>Renseigner cet identifiant dans le formulaire pour Angon et cliquez sur "Générer GPX"</p></li>
+	<li><p>Ajouter le fichier téléchargé dans votre application de cartographie préférée (Icône et mise en forme optimisé pour View Ranger)</p></li></ul>
+	<h4>Une autre astuce ?</h4>
+	<p>Il est possible également d'obtenir directement le GPX du topo souhaité en construisant l'adresse à partir de son identifiant</p>
+	<div class="code">
+		http://pujonline.000webhostapp.com/dc_to_gpx.php?id=<strong>#IDENTIFIANT#</strong>
+	</div>
+	<p>Voici un <a href="http://pujonline.000webhostapp.com/dc_to_gpx.php?id=2136">exemple</a></p>
+
+
+</body>
+</html>
